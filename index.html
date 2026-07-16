@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Propuesta de crecimiento digital para Zoku Japón: app de pedidos, campaña QR, comunidad Premium y funnel de anuncios.">
+<meta name="description" content="Propuesta de crecimiento digital con IA para Zoku Japón: app de pedidos, campaña QR, comunidad Premium y un sistema de ventas con IA.">
 <title>Zoku Japón · Propuesta de crecimiento digital</title>
 
 <style>
@@ -175,6 +175,12 @@
   .flow b{color:var(--ink); font-weight:700; white-space:nowrap}
   .flow .arw{color:var(--aka); font-weight:700}
 
+  ol.stepnums{list-style:none; margin:0; padding:0; counter-reset:s; display:flex; flex-direction:column; gap:.55rem}
+  ol.stepnums li{position:relative; padding-left:2.1rem; font-size:.98rem; line-height:1.5; color:var(--ink-soft); counter-increment:s}
+  ol.stepnums li::before{content:counter(s); position:absolute; left:0; top:.02em; width:1.4rem; height:1.4rem; display:grid; place-items:center;
+    background:var(--aka); color:#fff; border-radius:7px; font-family:var(--display); font-weight:800; font-size:.8rem}
+  ol.stepnums li b{color:var(--ink); font-weight:700}
+
   .result{margin-top:auto; display:flex; align-items:flex-start; gap:.6rem; padding-top:1.1rem; border-top:1px solid var(--line);
     font-weight:600; color:var(--ink); line-height:1.45}
   .result::before{content:"Resultado"; flex:none; font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
@@ -194,27 +200,10 @@
     padding:1.6rem 1.4rem; display:flex; flex-direction:column; gap:.5rem; box-shadow:var(--card-sh)}
   .pcard .pn{font-family:var(--display); font-weight:800; font-size:1.15rem}
   .pcard .amt{font-family:var(--display); font-weight:800; font-size:2.3rem; line-height:1; color:var(--aka); letter-spacing:-.03em}
+  .pcard .amt.amt-sm{font-size:1.55rem}
+  .pcard .cur{font-size:.9rem; font-weight:700; vertical-align:.35em; margin-left:.1em}
   .pcard .per{color:var(--ink-soft); font-size:.9rem; font-weight:600; margin-top:-.1rem}
   .pcard .inc{color:var(--ink-soft); font-size:.92rem; line-height:1.5; margin-top:.5rem}
-  .pcard .was{color:var(--ink-faint); text-decoration:line-through; font-family:var(--display); font-weight:700; font-size:1.1rem}
-  .ribbon{position:absolute; top:1rem; right:1rem; font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase;
-    background:var(--ember); color:#231108; font-weight:700; padding:.25rem .55rem; border-radius:99px}
-
-  .bundle{margin-top:1rem; background:var(--coal); color:var(--coal-ink); border:1px solid var(--coal);
-    border-radius:18px; padding:clamp(1.6rem,3.5vw,2.4rem); display:grid; grid-template-columns:1.4fr .6fr; gap:1.5rem; align-items:center;
-    box-shadow:var(--card-sh); overflow:hidden; position:relative}
-  .bundle::before{content:""; position:absolute; right:-40px; top:-40px; width:220px; height:220px; border-radius:50%;
-    background:radial-gradient(circle, rgba(255,122,47,.28), transparent 70%)}
-  .bundle .b-info{position:relative; z-index:2}
-  .bundle h3{color:#fff; font-size:clamp(1.5rem,3vw,2rem)}
-  .bundle p{color:#e9cec3; margin-top:.6rem; max-width:44ch}
-  .bundle .b-price{position:relative; z-index:2; text-align:right}
-  .bundle .b-price .amt{font-family:var(--display); font-weight:800; font-size:clamp(2.4rem,5vw,3.2rem); line-height:1; color:#ff5c7f; letter-spacing:-.03em}
-  .bundle .b-price .per{color:#e9cec3; font-weight:600; margin-top:.2rem}
-  .bundle .b-price .save{display:inline-block; margin-top:.7rem; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
-    background:var(--ember); color:#231108; font-weight:700; padding:.3rem .6rem; border-radius:99px}
-  @media(max-width:680px){.bundle{grid-template-columns:1fr; text-align:left} .bundle .b-price{text-align:left}}
-  .pnote{margin-top:1.4rem; color:var(--ink-faint); font-size:.9rem; font-family:var(--mono); letter-spacing:.02em; line-height:1.6}
 
   /* ================= CÓMO ENCAJAN ================= */
   .encajan{border-top:1px solid var(--line); background:var(--bg-3)}
@@ -309,14 +298,14 @@
     </div>
     <div class="wrap inner">
       <div class="copy">
-        <span class="eyebrow">Propuesta de crecimiento digital</span>
+        <span class="eyebrow">Propuesta de crecimiento digital con IA</span>
         <div class="wm wm-big"><span class="z">Zoku</span><span class="j">japón</span></div>
         <h1>No es solo comida. Y no tiene por qué terminar en la <em>mesa</em>.</h1>
-        <p class="lede">Cuatro sistemas para vender más en cada pedido y convertir a los clientes de paso en una tribu propia que vuelve.</p>
+        <p class="lede">Cuatro sistemas con IA para vender más en cada pedido y convertir a los clientes de paso en una tribu propia que vuelve.</p>
         <div class="tags">
           <span>Pedir · Fidelizar · Repetir</span>
           <span>4 productos</span>
-          <span>Precios claros en USD</span>
+          <span>Precios en pesos (MXN)</span>
         </div>
       </div>
       <div class="art" aria-hidden="true">
@@ -354,43 +343,43 @@
       <div class="sec-head reveal">
         <span class="eyebrow">Los productos</span>
         <h2>Cuatro platos para hacer crecer Zoku.</h2>
-        <p>Cada uno resuelve una parte distinta del recorrido del cliente. Puedes empezar por uno o servirlos como menú completo.</p>
+        <p>Cada uno resuelve una parte distinta del recorrido del cliente. Puedes empezar por uno o combinarlos entre sí.</p>
       </div>
 
       <div class="cards reveal">
 
         <!-- 1 -->
         <article class="card">
-          <div class="head"><span class="num">1</span><span class="price-pill">$600 <small>+ $35/mes</small></span></div>
+          <div class="head"><span class="num">1</span><span class="price-pill">$11,900 <small>+ $690/mes</small></span></div>
           <h3>App de pedidos online</h3>
-          <p class="desc">Una app propia para pedir desde cualquier lugar, pagar online y recoger cuando esté listo. No una carta digital: una <strong>carta inteligente</strong> que guía la compra en lugar de dejar al cliente decidir solo.</p>
+          <p class="desc">Una app propia para pedir desde cualquier lugar, pagar online y recoger cuando esté listo. No es una carta digital: es una carta con un <strong>agente de IA</strong> que guía la compra en lugar de dejar al cliente decidir solo.</p>
           <ul class="list quotes">
             <li>“Añade una bebida.”</li>
             <li>“Complétalo con unas gyozas.”</li>
             <li>“Por un poco más, conviértelo en menú.”</li>
           </ul>
-          <p class="result">Más pedidos directos, menos espera y un ticket medio más alto.</p>
+          <p class="result">Más pedidos, menos espera, mejor experiencia y un ticket promedio más alto.</p>
         </article>
 
         <!-- 2 -->
         <article class="card">
-          <div class="head"><span class="num">2</span><span class="price-pill">$250</span></div>
+          <div class="head"><span class="num">2</span><span class="price-pill">$4,900</span></div>
           <h3>Campaña QR</h3>
-          <p class="desc">Códigos QR en mesas, tickets, bolsas y escaparates. El cliente escanea, rellena un formulario sencillo y recibe algo a cambio. Sus datos pasan solos a una base organizada.</p>
+          <p class="desc">Códigos QR en tent card, tickets, bolsas y mostrador. El cliente escanea, rellena un formulario sencillo y recibe un obsequio gratis. Sus datos pasan solos a una base de datos de Zokujapón.</p>
           <ul class="list">
             <li>Descuento para la próxima visita</li>
             <li>Un postre o bebida especial · sorteo</li>
             <li>Regalo por su cumpleaños</li>
           </ul>
-          <p class="desc">Ahora Zoku escribe directo: <em>“hoy 2×1 en ramen”</em>, <em>“vuelve tu plato favorito”</em>, <em>“es tu cumpleaños, tienes un regalo”.</em></p>
-          <p class="result">Más datos propios, más recurrencia y menos dependencia de las redes.</p>
+          <p class="desc">Zokujapón activa la base de datos con ejemplos: <em>“hoy 2×1 en ramen”</em>, <em>“vuelve tu plato favorito”</em>, <em>“es tu cumpleaños, tienes un regalo”.</em></p>
+          <p class="result">Base de datos de clientes, contacto recurrente y mayor TOP of Mind.</p>
         </article>
 
         <!-- 3 -->
         <article class="card">
-          <div class="head"><span class="num">3</span><span class="price-pill">$450 <small>+ $40/mes</small></span></div>
+          <div class="head"><span class="num">3</span><span class="price-pill">$8,900 <small>+ $790/mes</small></span></div>
           <h3>Zoku Japón Premium</h3>
-          <p class="desc">Una comunidad exclusiva que convierte a los habituales en fans. El objetivo no es solo que vuelvan a comer: es que sientan que <strong>forman parte de algo</strong>.</p>
+          <p class="desc">Una comunidad exclusiva que convierte a los habituales en fans. El objetivo no es solo que vuelvan a comer: es que sientan que <strong>son clientes premium</strong>.</p>
           <ul class="list">
             <li>Platos secretos fuera de carta</li>
             <li>Preventa de novedades y eventos privados</li>
@@ -402,14 +391,16 @@
 
         <!-- 4 -->
         <article class="card">
-          <div class="head"><span class="num">4</span><span class="price-pill"><span style="color:var(--aka)">$150</span> <small style="text-decoration:line-through">$300</small></span></div>
-          <h3>Landing → Funnel → Carta</h3>
+          <div class="head"><span class="num">4</span><span class="tag">Producto estrella · con IA</span></div>
+          <h3>Sistema de Ventas con IA</h3>
           <p class="desc">Un sistema que convierte las visitas de Instagram, Facebook o Google en pedidos reales. En vez de soltar al cliente en una carta enorme, primero le ayuda a decidir: <em>“¿ramen, sushi o algo para compartir?”</em></p>
-          <div class="flow" aria-label="Recorrido del funnel">
-            <b>Anuncio</b><span class="arw">→</span><b>Landing</b><span class="arw">→</span><b>Oferta</b><span class="arw">→</span><b>Carta</b><span class="arw">→</span><b>Pedido</b>
-          </div>
-          <p class="desc">Y todo se mide: cuántos entran, qué consultan, dónde abandonan y qué promociones venden más.</p>
-          <p class="result">Más tráfico convertido, decisiones más rápidas y mayor ticket medio.</p>
+          <ol class="stepnums">
+            <li><b>Web inteligente con IA</b> — todos los visitantes dejan sus datos.</li>
+            <li><b>Chatbot de voz</b> entrenado con IA.</li>
+            <li><b>Campaña de Meta Ads.</b></li>
+          </ol>
+          <p class="desc">El chatbot guía en toda la experiencia de compra.</p>
+          <p class="result">Nuevos clientes, decisiones más rápidas y mayor ticket promedio.</p>
         </article>
 
       </div>
@@ -422,50 +413,35 @@
       <div class="sec-head reveal">
         <span class="eyebrow">Precios</span>
         <h2>Claro y sin sorpresas.</h2>
-        <p>Un pago único de montaje y, donde aplica, un mantenimiento mensual. Puedes contratar los platos por separado o el menú completo.</p>
+        <p>Un pago único de montaje y, donde aplica, un mantenimiento mensual. Cada producto se puede contratar por separado.</p>
       </div>
 
       <div class="pgrid reveal">
         <div class="pcard">
           <span class="pn">App de pedidos</span>
-          <span class="amt">$600</span>
-          <span class="per">montaje · + $35/mes</span>
+          <span class="amt">$11,900<span class="cur">MXN</span></span>
+          <span class="per">montaje · + $690/mes</span>
           <span class="inc">Web app de pedidos, pago online, recogida y recomendaciones que suben el ticket.</span>
         </div>
         <div class="pcard">
           <span class="pn">Campaña QR</span>
-          <span class="amt">$250</span>
+          <span class="amt">$4,900<span class="cur">MXN</span></span>
           <span class="per">pago único</span>
           <span class="inc">QR, formulario, base de datos y las primeras campañas de recontacto.</span>
         </div>
         <div class="pcard">
           <span class="pn">Zoku Premium</span>
-          <span class="amt">$450</span>
-          <span class="per">montaje · + $40/mes</span>
+          <span class="amt">$8,900<span class="cur">MXN</span></span>
+          <span class="per">montaje · + $790/mes</span>
           <span class="inc">Comunidad privada, puntos y recompensas, eventos y preventas.</span>
         </div>
         <div class="pcard">
-          <span class="ribbon">Oferta lanzamiento</span>
-          <span class="pn">Landing + Funnel</span>
-          <span class="amt">$150</span>
-          <span class="per"><span class="was">$300</span> pago único</span>
-          <span class="inc">Landing, funnel y carta que convierte anuncios en pedidos, con medición.</span>
+          <span class="pn">Sistema de Ventas con IA</span>
+          <span class="amt amt-sm">A cotizar</span>
+          <span class="per">cotización a medida</span>
+          <span class="inc">Web inteligente con IA, un chatbot de voz entrenado con IA y campaña de Meta Ads.</span>
         </div>
       </div>
-
-      <div class="bundle reveal">
-        <div class="b-info">
-          <h3>Menú completo</h3>
-          <p>Los cuatro productos integrados en un solo sistema: el funnel atrae, el QR captura, la app rentabiliza y Premium fideliza. Todo hablando entre sí.</p>
-        </div>
-        <div class="b-price">
-          <div class="amt">$1.290</div>
-          <div class="per">montaje · + $65/mes</div>
-          <span class="save">Ahorras $310 en el montaje</span>
-        </div>
-      </div>
-
-      <p class="pnote reveal">Precios en USD. «Montaje» = pago único de puesta en marcha. El mantenimiento mensual solo aparece donde se indica y cubre alojamiento, soporte y actualizaciones. La oferta de la landing es para el lanzamiento.</p>
     </div>
   </section>
 
@@ -478,12 +454,12 @@
         <p>No son cuatro tácticas sueltas: forman un ciclo. Lo que uno recoge, el siguiente lo aprovecha.</p>
       </div>
       <div class="cycle reveal">
-        <div class="node"><span class="st">Atraer</span><b>Funnel</b><span>Trae gente nueva desde los anuncios y la convierte en pedido.</span></div>
         <div class="node"><span class="st">Capturar</span><b>QR</b><span>Cada visita deja un dato: WhatsApp, cumpleaños, plato favorito.</span></div>
         <div class="node"><span class="st">Rentabilizar</span><b>App</b><span>Sube el ticket de cada pedido con recomendaciones inteligentes.</span></div>
         <div class="node"><span class="st">Fidelizar</span><b>Premium</b><span>Convierte esos datos en una comunidad que vuelve por identidad.</span></div>
+        <div class="node"><span class="st">Atraer</span><b>Web inteligente</b><span>Chatbot conversacional con IA y campaña de Meta Ads.</span></div>
       </div>
-      <p class="close-line reveal">Atraer, convertir, fidelizar, repetir — y en cada vuelta, <em>un poco más de ticket</em>.</p>
+      <p class="close-line reveal">Atraer, convertir, fidelizar, repetir — y en cada vuelta, <em>mayor ticket promedio</em>.</p>
     </div>
   </section>
 
@@ -516,7 +492,7 @@
       </svg>
       <span class="z">Zoku</span>&nbsp;<span class="j">japón</span>
     </span>
-    <small>Propuesta de crecimiento digital · Precios en USD</small>
+    <small>Propuesta de crecimiento digital con IA</small>
   </div>
 </footer>
 
